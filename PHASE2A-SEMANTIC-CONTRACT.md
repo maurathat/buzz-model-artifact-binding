@@ -1,6 +1,8 @@
 # Buzz Phase 2A — Semantic Contract: declared model-artifact binding (Scope A)
 
-**Status: draft for review. Not committed. Document-only.**
+**Status: committed Scope A semantic contract.** First committed at
+`1996b4a0`; later revisions are recorded in the repository history.
+Document-only.
 No tag, no tag name, no wire encoding, no implementation, no upstream activity.
 This contract fixes what the relationship *means* before any syntax exists.
 
@@ -268,6 +270,12 @@ The manifest-versus-weights question is a matter of **which object the author
 named and how deeply a verifier resolved it**, not of two competing ontologies.
 Recording the referent and the resolution depth carries the distinction, so
 Phase 2A needs no taxonomy change.
+
+**Clarification after Representation Gate 2 — no change of meaning:** "Recording
+the referent and resolution depth" describes the verifier's record of what
+object was declared and what relationships were subsequently established
+through verified resolution. It does not require the event declaration to carry
+referent-type or direct/transitive-depth fields (§4).
 
 Genuine residue, identified and not solved: A-04 was a question about a
 **measurement** taxonomy — how a scorer should classify a digest it finds.

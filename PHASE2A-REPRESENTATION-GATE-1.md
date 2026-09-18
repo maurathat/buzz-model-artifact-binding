@@ -1,6 +1,7 @@
 # Buzz Phase 2A — Representation Gate 1
 
-**DRAFT — not committed, outside Git. Read-only comparison gate.**
+**Status: completed representation gate, committed at `2e359878`.** Read-only
+comparison gate.
 No tag name chosen, no NIP proposed, nothing implemented, nothing opened
 upstream. This document establishes the design space only. It deliberately
 contains **no recommended representation**.
