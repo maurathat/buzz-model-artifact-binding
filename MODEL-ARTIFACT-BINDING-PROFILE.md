@@ -56,14 +56,8 @@ is hashed as its literal bytes. The relationship carries no referent-type field.
 
 ## 5. Digest lexical form
 
-The decoded string value of the second tag element MUST match, as a whole,
-exactly:
-
-```text
-^[0-9a-f]{64}$
-```
-
-That is: exactly 64 characters, each one of the ASCII characters `0`–`9` or
+The decoded string value of the second tag element MUST be, as a whole,
+exactly 64 characters, each one of the ASCII characters `0`–`9` or
 `a`–`f` (U+0030–U+0039, U+0061–U+0066). Uppercase letters, prefixes,
 separators and whitespace are not permitted. No trimming, aliasing or
 normalization is applied.
