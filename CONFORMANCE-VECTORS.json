@@ -1,0 +1,742 @@
+{
+  "corpus": "mab-reference-test/1",
+  "specification": {
+    "commit": "81b7b5767a47ab60385de4512243ecf8fa0e631f",
+    "content_sha256": "dd752441750a6e6f6f76000504b3dfe7a9d7218480438d911f57d38c4ff99868"
+  },
+  "profile": {
+    "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+    "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+  },
+  "fixture_parameters": {
+    "carrier": "declared-model-artifact",
+    "fixture_pubkey": "e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd",
+    "event_kind": 1,
+    "created_at": 1760000000,
+    "content": "",
+    "note": "The fixture secret key is deliberately not published. Event kind is non-normative scaffolding (schema I8).",
+    "pv1_digest": "a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed",
+    "pv1_derivation": "sha256('mab-rt-pv1-0')",
+    "encoding_digest": "a2151af6e98b16e53bd9f9ef28c0e2d6f8b9879eed6fa857887b7e6945addbda",
+    "encoding_derivation": "sha256('mab-rt-enc-2')",
+    "gzip": {
+      "compresslevel": 9,
+      "mtime": 0,
+      "implementation": "CPython zlib"
+    },
+    "profile_refs_rule": "indicative only, and not derived by any stated rule. The specification assigns each case a requirement row, not a profile_refs value, and open certification item C-3 records that no derivation rule exists and that nothing compares this field. Values here name the profile sections a reader may find relevant; they are not authoritative and no expected result depends on them."
+  },
+  "case_count": {
+    "PV": 1,
+    "NV": 26,
+    "VF": 8,
+    "total": 35
+  },
+  "vectors": [
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-45a31a45deeb",
+      "profile_refs": [
+        "§2",
+        "§5"
+      ],
+      "description": "PV-1: canonical tag; digest exercises all sixteen hexadecimal symbols",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": true
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-7e05e9ec3c62",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-A1: one element: digest element absent",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-4294aed98962",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-A2: three elements, trailing empty string",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\", \"\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-802e8c583d42",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-A3: three elements, trailing neutral non-empty",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\", \"x\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-9658dce7bdb5",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-C1: carrier case variant",
+      "input": {
+        "tag_json": "[\"Declared-Model-Artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-2cedd804a415",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-C2: carrier with trailing space",
+      "input": {
+        "tag_json": "[\"declared-model-artifact \", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-393040a09b2c",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-C3: carrier with a non-whitespace prefix",
+      "input": {
+        "tag_json": "[\"x-declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-a4d42d8ec87d",
+      "profile_refs": [
+        "§2"
+      ],
+      "description": "NV-C4: carrier with a leading space",
+      "input": {
+        "tag_json": "[\" declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-83ea572b4ba2",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-H1: all alphabetic digest characters uppercase",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"A9FDCD46A37D9C25769C2A3A8226CBD7B9C1615AF5A953EE660615571175A2ED\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-a684e59b8e1a",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-H2: exactly one alphabetic digest character uppercase",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"A9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-974e490b0358",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-H3: one non-hex ASCII character g, length 64",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"agfdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-b5ec19936aab",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-H4: one compatibility-normalizable lookalike (U+FF10)",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd０6a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-475cfcdbe5dd",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-H5: one non-normalizable confusable (U+0430)",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9аdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-ae126f78e049",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-H6: valid digest, U+0000, then a further character",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\\u0000x\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-615361b5968f",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-L1: 63 characters",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2e\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-acc699384bd3",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-L2: 65 characters, first character not f",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed0\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-c58dccf7d1e4",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-L3: empty string",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-949e78f29c70",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-P1: sha256: prefix",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"sha256:a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-649741116e35",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-P2: sha-256: prefix",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"sha-256:a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-d81eaacb4b37",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-P3: 0x prefix",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"0xa9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-a144599914f9",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-E1: standard base64 spelling of digest bytes",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"ohUa9umLFuU72fnvKMDi1vi5h57tb6hXiHt+aUWt29o=\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-26c8fa2ae91c",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-E2: base64url spelling of the same digest bytes",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"ohUa9umLFuU72fnvKMDi1vi5h57tb6hXiHt-aUWt29o=\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-29b67f04e8cb",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-E3: multibase base16 spelling: f + valid digest",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"fa9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-a416ac3dd0a2",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-W1: leading space",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \" a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-85a52f33080f",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-W2: trailing space",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed \"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-dec4d0b12b88",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-W3: trailing line feed",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9fdcd46a37d9c25769c2a3a8226cbd7b9c1615af5a953ee660615571175a2ed\\n\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-d06eb5c16461",
+      "profile_refs": [
+        "§5"
+      ],
+      "description": "NV-W4: colon separators between byte pairs",
+      "input": {
+        "tag_json": "[\"declared-model-artifact\", \"a9:fd:cd:46:a3:7d:9c:25:76:9c:2a:3a:82:26:cb:d7:b9:c1:61:5a:f5:a9:53:ee:66:06:15:57:11:75:a2:ed\"]"
+      },
+      "expected": {
+        "relationship_instance_valid": false
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-ddd4f8982ef5",
+      "profile_refs": [
+        "§3",
+        "§4",
+        "§5",
+        "§7"
+      ],
+      "description": "VF-1: candidate equals the digest preimage; arbitrary content",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"eb43c6d1e05fb4443f85f6478171fbb40c605ecf5fa7ab1f99d78f036d0eda40\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"9bf21cba1b306733a66d2869d256f98e9461b253ec3aa2ff6172aa0b9311b525\"]],\"content\":\"\",\"sig\":\"592d42d83a7fdc7f4fee459b657b15c9c887c139701e169b6746c21a93dbb61dd6cce946143536476ad2c4d3992d238a97b17ee62307fb7fb84a7708803f97d1\"}",
+        "candidate_b64": "QlVaWiBNQUIgcmVmZXJlbmNlLXRlc3QgYXJiaXRyYXJ5IGJ5dGVzCg=="
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": true,
+          "candidate_is_not_declared_artifact": false
+        }
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-824a9d18d998",
+      "profile_refs": [
+        "§7"
+      ],
+      "description": "VF-2: candidate unrelated to the preimage",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"eb43c6d1e05fb4443f85f6478171fbb40c605ecf5fa7ab1f99d78f036d0eda40\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"9bf21cba1b306733a66d2869d256f98e9461b253ec3aa2ff6172aa0b9311b525\"]],\"content\":\"\",\"sig\":\"592d42d83a7fdc7f4fee459b657b15c9c887c139701e169b6746c21a93dbb61dd6cce946143536476ad2c4d3992d238a97b17ee62307fb7fb84a7708803f97d1\"}",
+        "candidate_b64": "QlVaWiBNQUIgcmVmZXJlbmNlLXRlc3QgdW5yZWxhdGVkIGNhbmRpZGF0ZQo="
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": false,
+          "candidate_is_not_declared_artifact": true
+        }
+      },
+      "audit": {
+        "digest_preimage_b64": "QlVaWiBNQUIgcmVmZXJlbmNlLXRlc3QgYXJiaXRyYXJ5IGJ5dGVzCg=="
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-9cd63027cf64",
+      "profile_refs": [
+        "§4"
+      ],
+      "description": "VF-3: non-canonical manifest bytes as preimage and candidate",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"affa3c075a9d5150047af3729fbcd65873b38d3b9741f81b8a0f4924d23a33e5\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"de8d54e5bafccf9c4b31a41d398c26c7bd59308a6d55c4fc05c8b0178049695b\"]],\"content\":\"\",\"sig\":\"58d28a335ce5415267f26c2c79c51b28a1213c4d8b8eb2b109afabdca53bf24900fac302cdce56b2a3862ee5cf1ace2898d57b9a549e1559b6ef1ab525e6fcac\"}",
+        "candidate_b64": "eyAid2VpZ2h0cyI6ICJhZWQzZTc0NDkwMTdhMDNhOWFiMjA3OGE1NzUyNzEzN2Q0NjQzYzdmNTM2YTA1ZGM0MTQwNzRlMTVjYjY1YjNkIiwKICAiYXJjaCI6ICJkZW1vIiB9"
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": true,
+          "candidate_is_not_declared_artifact": false
+        }
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-b239c00ca9d8",
+      "profile_refs": [
+        "§8"
+      ],
+      "description": "VF-4: weight bytes the manifest references, against the manifest digest; documentary only",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"affa3c075a9d5150047af3729fbcd65873b38d3b9741f81b8a0f4924d23a33e5\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"de8d54e5bafccf9c4b31a41d398c26c7bd59308a6d55c4fc05c8b0178049695b\"]],\"content\":\"\",\"sig\":\"58d28a335ce5415267f26c2c79c51b28a1213c4d8b8eb2b109afabdca53bf24900fac302cdce56b2a3862ee5cf1ace2898d57b9a549e1559b6ef1ab525e6fcac\"}",
+        "candidate_b64": "QlVaWiBNQUIgcmVmZXJlbmNlLXRlc3Qgd2VpZ2h0IGJ5dGVzCg=="
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": false,
+          "candidate_is_not_declared_artifact": true
+        }
+      },
+      "audit": {
+        "digest_preimage_b64": "eyAid2VpZ2h0cyI6ICJhZWQzZTc0NDkwMTdhMDNhOWFiMjA3OGE1NzUyNzEzN2Q0NjQzYzdmNTM2YTA1ZGM0MTQwNzRlMTVjYjY1YjNkIiwKICAiYXJjaCI6ICJkZW1vIiB9"
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-c4c9eefa4d7c",
+      "profile_refs": [
+        "§4"
+      ],
+      "description": "VF-5: declared digest of the reserialized manifest; candidate is the non-canonical form",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"a4ac1a76755a7563f2a58a9c0a1b0524ea3adfd90249af11761d25d8c30dd0f7\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"1b16c454230149c815165d4a501236af9a8683809b944f94baa5f082adb7cbe0\"]],\"content\":\"\",\"sig\":\"3f192bce586bfe3bc7d730ea1cba5c0da32671c3a90486f17badde090a20621c99417437b4800b1d8ff1fc6391ddc9f79306e99f7a09ad957f8cf9840fc93896\"}",
+        "candidate_b64": "eyAid2VpZ2h0cyI6ICJhZWQzZTc0NDkwMTdhMDNhOWFiMjA3OGE1NzUyNzEzN2Q0NjQzYzdmNTM2YTA1ZGM0MTQwNzRlMTVjYjY1YjNkIiwKICAiYXJjaCI6ICJkZW1vIiB9"
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": false,
+          "candidate_is_not_declared_artifact": true
+        }
+      },
+      "audit": {
+        "digest_preimage_b64": "eyJhcmNoIjoiZGVtbyIsIndlaWdodHMiOiJhZWQzZTc0NDkwMTdhMDNhOWFiMjA3OGE1NzUyNzEzN2Q0NjQzYzdmNTM2YTA1ZGM0MTQwNzRlMTVjYjY1YjNkIn0="
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-9bdb4edd281b",
+      "profile_refs": [
+        "§4"
+      ],
+      "description": "VF-6: declared preimage NFC; candidate the corresponding NFD form",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"6e125f2999d0cd3cd48ec1bb9f7233157978de7ab4b0bedde53eab77a8ce8262\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"850f7dc43910ff890f8879c0ed26fe697c93a067ad93a7d50f466a7028a9bf4e\"]],\"content\":\"\",\"sig\":\"470fd58a2e455485aa378f9d57e283e96f222a5fcacbcb55da06806a44c170ff5cdb23e764190ee4fc1db574fbccdc54a01099b4e4ca8c37770f383f795edba6\"}",
+        "candidate_b64": "Y2FmZcyB"
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": false,
+          "candidate_is_not_declared_artifact": true
+        }
+      },
+      "audit": {
+        "digest_preimage_b64": "Y2Fmw6k="
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-3b476d52ae97",
+      "profile_refs": [
+        "§4"
+      ],
+      "description": "VF-7: declared literal preimage; candidate a deterministic gzip encoding",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"4a339e19972b3ad3789e70445ca947880f7d1cdb355d7b3d0acc59bbffec0d48\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"3b31e2c323c9cddb4f1c74d6a2676c1228c44e60bd657f621acc03501cd22c38\"]],\"content\":\"\",\"sig\":\"9767ba844e0e66daef3d0a4abd505f42d39771a5f15973ec57cdaf56db56e64292d9397442154398da0f326e761a686eb88f7cc8457d174864d31d09eab96f27\"}",
+        "candidate_b64": "H4sIAAAAAAAC/3MKjYpS8HV0UihKTUstSs1LTtUtSS0uUUivyixQKChKzcxNTE/lAgB+Mg1qJgAAAA=="
+      },
+      "expected": {
+        "relationship_instance_valid": true,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": true,
+          "candidate_matches_declared_digest": false,
+          "candidate_is_not_declared_artifact": true
+        }
+      },
+      "audit": {
+        "digest_preimage_b64": "QlVaWiBNQUIgcmVmZXJlbmNlLXRlc3QgZ3ppcCBwcmVpbWFnZQo="
+      }
+    },
+    {
+      "vector_schema": "mab-conformance-vector/1",
+      "profile": {
+        "commit": "80f5a1b8437563d265c1308fe1b74a84b8e357e4",
+        "content_sha256": "4de926b95fb4eb3791b861a671c652b7270d83e491502ec21145a9d62c5117c0"
+      },
+      "id": "mab-rt-e732d929c117",
+      "profile_refs": [
+        "§6"
+      ],
+      "description": "VF-8: uppercase-digest instance; candidate hashes to the lowercased digest",
+      "input": {
+        "event_json": "{\"kind\":1,\"id\":\"f89b0831861d46c4a27ee3e0d26338753062167d1dc14f121ec53b02a50eca1e\",\"pubkey\":\"e54731bf9eb26d40b4cba1249c9f482de3c3d63e2c44ec29ae636ad71718cedd\",\"created_at\":1760000000,\"tags\":[[\"declared-model-artifact\",\"5669329953284F503E1988E84C231415EAABEE286C0BBB45BC7890CE76E54460\"]],\"content\":\"\",\"sig\":\"f486aa63059735da8547c993d6959b96a600970e6943bf83e980854ed595af099583bff481cc1d97f6079c6e552d7adb0ee0b85a801de32b6f361bc094b39b1e\"}",
+        "candidate_b64": "QlVaWiBNQUIgcmVmZXJlbmNlLXRlc3Qgbm8tcmVwYWlyIGNhbmRpZGF0ZQo="
+      },
+      "expected": {
+        "relationship_instance_valid": false,
+        "signature_valid": true,
+        "established": {
+          "author_signed_valid_declaration": false,
+          "candidate_matches_declared_digest": false,
+          "candidate_is_not_declared_artifact": false
+        }
+      }
+    }
+  ]
+}
