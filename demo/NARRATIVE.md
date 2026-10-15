@@ -40,8 +40,8 @@ Every beat below points at a part of it.
 > When an agent says "this came from Llama-3-8B," nothing in that message is
 > checkable. The model name is a label. Nobody can recompute it.
 >
-> So we stopped trying to say which model ran, and made the one claim that *is*
-> checkable: the content identity of an artifact.
+> So this profile doesn't attempt that claim at all. It makes the one claim that
+> *is* checkable, and makes it exactly: the content identity of an artifact.
 
 One line on screen, and it is the entire wire format:
 
@@ -92,6 +92,10 @@ declaration still valid. Let that sit for a second before explaining it.
 >
 > What changed is the only thing that *should* change: whether these particular
 > bytes are the artifact the declaration identifies.
+>
+> And notice which way that lands. You don't get "unverified" — you get a
+> refutation: these bytes are *not* the declared artifact. Equality gives you
+> correspondence. Inequality gives you the stronger result.
 
 If one sentence survives the meeting, it is that one.
 
@@ -132,6 +136,13 @@ Then stop talking.
 ---
 
 ## If asked
+
+**"If you can't say what ran, what's the point?"** — The alternative on offer
+today is a model name in a string field that nobody can recompute. This replaces
+an uncheckable label with a claim any third party can verify *or refute* from the
+bytes alone. And it isn't that we don't know what ran — it's that no signed
+message can observe a runtime, so anything claiming to would be unfalsifiable.
+Drawing that line is what makes the rest trustworthy.
 
 **"Why not sign the model itself?"** — You can't. The operator controls the
 signing key and the loader; a signature over a weights file says nothing about
