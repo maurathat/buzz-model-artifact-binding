@@ -92,8 +92,10 @@ identifier; event-level cardinality; edit semantics.
 **OUTSIDE SCOPE A** — asserted direct/transitive depth, and the Scope B
 concepts below, each of which, if added, creates a *different* claim
 rather than strengthening this one. The author generally cannot know most of
-them either: the Mesh probe found the effective artifact is never returned to
-the agent.
+them either: in this project's own Mesh architecture probe, recorded
+2026-09-18, no path examined returned the effective artifact to the agent.
+That is a dated observation made by this project, not a standing claim about
+Mesh's behaviour then or now.
 
 | Concept | Why it is outside Scope A | Contract basis |
 |---|---|---|
