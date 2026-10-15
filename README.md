@@ -107,6 +107,68 @@ valid signature proves the author signed it. Digest equality proves these bytes
 are the artifact named. None of that proves what was loaded or run — and a
 profile that quietly implied otherwise would be worse than useless.
 
+## Where this fits with Mesh LLM
+
+Three different things get verified at three different layers. Only the middle
+one is what this repository demonstrates.
+
+| Layer | What it verifies | Status here |
+|---|---|---|
+| **Mesh packaging** | Distributed software: release archives, native packages, container images, and their provenance. Its README describes requiring a verified SHA-256 for each selected host OS and architecture, checksum sidecars, an aggregate `SHA256SUMS`, SPDX SBOMs, provenance records, and base images resolved to immutable digests | Existing work, not ours |
+| **Buzz Phase 2A** — this repository | The exact model-artifact bytes declared in a signed Nostr event, by SHA-256 over the literal bytes | **Demonstrated** end to end through a live Buzz relay |
+| **Mesh LLM runtime** | Which model was actually selected, loaded, and used for a given inference | **Not demonstrated in this repository; runtime capabilities require confirmation with Mesh LLM maintainers.** |
+
+The layers are complementary, and conflating them is the easy mistake. Knowing
+that you installed a verified `mesh-llm` build tells you nothing about which
+weights answered a particular request. Distribution digests stop at the engine;
+this profile starts at the artifact a message refers to. Neither one reaches
+execution.
+
+### A possible chain, with the parts that exist marked
+
+```
+model artifact declaration     ← demonstrated: the tag, frozen and specified
+        ↓
+Buzz signed event              ← demonstrated: ingest, persistence, retrieval,
+        ↓                         independent verification of the event the
+        ↓                         relay returned
+────────────────────────────── everything below this line is proposed, not built
+        ↓
+Mesh model selection           ← would require an authoritative selection record
+        ↓
+runtime model loading          ← would require the runtime to report the digest
+        ↓                         of what it actually loaded
+inference execution            ← would require linking a result to that evidence
+        ↓
+independently verifiable evidence
+```
+
+Above the line is running code with committed evidence. Below the line is a
+sketch of what would have to exist, and none of it is claimed, implemented, or
+promised by anybody. The profile is deliberately silent about all of it: the
+verifier has no field in which model selection, loading or execution could be
+reported, and that is structural rather than a gap awaiting a release.
+
+### Three questions for Mesh LLM
+
+These are questions, not requirements.
+
+1. **Where does Mesh LLM resolve the effective model or model weights?** The
+   declaration names bytes; something, somewhere, decides which bytes a request
+   actually uses.
+2. **Can the runtime expose the exact artifact digest of the model it loaded?**
+   If it can, the same SHA-256 over literal bytes that this profile already
+   specifies would compare directly against a declaration, with no new format.
+3. **Can an inference result be associated with signed evidence identifying the
+   participating model artifact?** This is the step that would connect a
+   declaration to an execution, and whether anything provides it today is one of
+   the things these questions are asking.
+
+Any answer is useful, including that a capability is not exposed or not planned.
+Confirming the current state with Mesh LLM maintainers is a precondition for
+discussing whether these layers should connect at all, and nothing in this
+repository depends on the answer.
+
 ## Repository map
 
 | Path | What it is |
