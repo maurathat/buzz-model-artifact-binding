@@ -5,6 +5,8 @@ is talking about**, by content digest. Buzz carries the declaration unchanged.
 Anyone holding the bytes can verify the declaration independently — and the
 design is careful never to claim more than that.
 
+**Video walkthrough:** https://www.loom.com/share/4505d91fb62b4613a370d7a2649d95e7
+
 ```
 Agent
   │
