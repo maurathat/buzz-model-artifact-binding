@@ -4,13 +4,44 @@
 #   ./demo/run-demo.sh            replay the preserved proof (no infrastructure)
 #   ./demo/run-demo.sh --live     run the full round trip through a local Buzz relay
 #
+#   --fast   never pause (rehearsal, recording, CI)
+#   --step   pause between beats even when stdin is not a terminal
+#
+# By default it pauses for Enter between beats when stdin is a terminal, and
+# runs straight through when it is not, so piped and unattended runs never
+# block. The pauses exist for one reason: the digest result changing from MATCH
+# to NO MATCH is the point of the demo, and at full speed the audience sees both
+# panels as a single wall of text.
+#
 # Replay mode uses the committed evidence in e2e/ and needs nothing but Python 3.
 # Live mode additionally needs the Buzz checkout, Docker Postgres, and the
 # fixture signing key; it is the same procedure, run live.
 set -uo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$HERE/.." && pwd)"
-MODE="${1:-replay}"
+
+LIVE=0; STEP=auto
+for arg in "$@"; do
+  case "$arg" in
+    --live) LIVE=1 ;;
+    --fast) STEP=never ;;
+    --step) STEP=always ;;
+    -h|--help) sed -n '2,16p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    *) echo "unknown option: $arg  (try --help)" >&2; exit 2 ;;
+  esac
+done
+
+# Pause for the presenter between beats. Never blocks an unattended run: in auto
+# mode it is a no-op unless stdin is a terminal, and --step reads /dev/tty so a
+# piped run can still be driven by hand.
+pause() {
+  case "$STEP" in
+    never)  return 0 ;;
+    auto)   [ -t 0 ] || return 0; printf '\n    [enter] '; read -r _ || true ;;
+    always) printf '\n    [enter] '; read -r _ < /dev/tty 2>/dev/null || return 0 ;;
+  esac
+  echo
+}
 
 rule() { printf '%s\n' "────────────────────────────────────────────────────────────"; }
 step() { printf '\n▸ %s\n' "$1"; }
@@ -37,7 +68,9 @@ cat <<'BANNER'
 ╰──────────────────────────────────────────────────────────────╯
 BANNER
 
-if [ "$MODE" = "--live" ]; then
+pause
+
+if [ "$LIVE" = "1" ]; then
   step "LIVE: emit → NIP-42 → ingest → persistence → historical REQ"
   echo "  (running the preserved procedure against a local relay)"
   # Derived output stays outside the repository: this script is part of the
@@ -75,10 +108,14 @@ print(f'  author         : {e["pubkey"]}')
 print(f'  the whole tag  : {json.dumps(tag)}')
 PY
 
+pause
+
 step "Independent verification of the retrieved event"
 rule
 verify --event "$EVENT_SRC" --candidate "$ARTIFACT" --human
 rule
+
+pause
 
 step "Now change one byte of the artifact and verify again"
 MUT="$(mktemp)"
@@ -90,10 +127,12 @@ import hashlib
 print(f'  one byte flipped, same length')
 print(f'  sha256 now     : {hashlib.sha256(m).hexdigest()}')
 PY
+pause
 rule
 verify --event "$EVENT_SRC" --candidate "$MUT" --human | sed -n '1,3p'
 rule
 rm -f "$MUT"
+pause
 
 cat <<'CLOSE'
 

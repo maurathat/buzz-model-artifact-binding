@@ -166,6 +166,10 @@ python3 verifier/mab_verify.py --corpus CONFORMANCE-VECTORS.json
 
 * Run `./demo/run-demo.sh` once before the room fills. Replay mode needs only
   Python 3 — no relay, no Docker, no key. Use it if the network is unreliable.
+* It pauses for Enter between beats when you run it in a terminal, so you set
+  the pace. The pause before the second panel is the one that matters — let
+  `MATCH` sit, then advance. `--fast` skips every pause for rehearsal or
+  recording; `--step` forces them even when output is piped.
 * `--live` needs the Buzz checkout, the isolated Postgres on 3002/3013/3014, and
   the fixture key outside the repo. Have replay mode as the fallback, and say
   out loud which mode you are in.
