@@ -1,0 +1,19 @@
+Buzz Model-Artifact Binding
+Copyright 2026 Maura Clark
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This product includes no third-party source code.
+
+Third-party works referenced, but not included or modified, by this
+repository:
+
+  * Buzz, a Nostr relay. Copyright Block, Inc., licensed under the
+    Apache License, Version 2.0. This repository cites source locations
+    and symbol names for verification purposes and copies no code.
+  * NIP-01 and NIP-42, Nostr protocol specifications, pinned at revision
+    a2494f4f81d46684e5814a9bf35e2b1df978f955.
+
+The "declared-model-artifact" tag name is a project-level name. It claims
+no upstream adoption, no NIP number, and no ownership or endorsement by
+Nostr, Buzz, Blossom or the UOR Foundation.
